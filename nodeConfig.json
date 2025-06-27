@@ -1,0 +1,105 @@
+{
+  "metrics-server": {
+    "port": 6070,
+    "addr": "0.0.0.0"
+  },
+  "chain": {
+    "info-json": "[{\"chain-id\":753,\"parent-chain-id\":42161,\"chain-name\":\"rivalz\",\"chain-config\":{\"chainId\":753,\"homesteadBlock\":0,\"daoForkBlock\":null,\"daoForkSupport\":true,\"eip150Block\":0,\"eip150Hash\":\"0x0000000000000000000000000000000000000000000000000000000000000000\",\"eip155Block\":0,\"eip158Block\":0,\"byzantiumBlock\":0,\"constantinopleBlock\":0,\"petersburgBlock\":0,\"istanbulBlock\":0,\"muirGlacierBlock\":0,\"berlinBlock\":0,\"londonBlock\":0,\"clique\":{\"period\":0,\"epoch\":0},\"arbitrum\":{\"EnableArbOS\":true,\"AllowDebugPrecompiles\":false,\"DataAvailabilityCommittee\":true,\"InitialArbOSVersion\":32,\"EigenDA\":false,\"Celestia\":true,\"InitialChainOwner\":\"0x89d0dbbe1760399a31e1b6074486e8ba2b7e63b3\",\"GenesisBlockNum\":0}},\"rollup\":{\"bridge\":\"0x8A9116cd9DBFF4Ab8a69E70224B0A9d838C1833C\",\"inbox\":\"0x0F0b6ADeCEAA9977c12e3c42CDadCdB4Df7Ba584\",\"sequencer-inbox\":\"0x6C71a22691590AcD426196509aabA6a73C32dEDd\",\"rollup\":\"0xAc4cA3E6FDf71BAbFe4144476D19Ff7aaDC78e6D\",\"validator-utils\":\"0x3d611fc51CE1FEE4B0FEF88F61A7D65669aF411f\",\"validator-wallet-creator\":\"0x8CA3C4eF76c4314930451921b5aff415d989aC1f\",\"deployed-at\":283834012}}]",
+    "name": "rivalz"
+  },
+  "parent-chain": {
+    "connection": {
+      "url": "http://l1-proxy:8080"
+    }
+  },
+  "http": {
+    "addr": "0.0.0.0",
+    "port": 8545,
+    "vhosts": "*",
+    "corsdomain": "*",
+    "api": [
+      "eth",
+      "net",
+      "web3",
+      "arb",
+      "debug",
+      "txpool"
+    ]
+  },
+  "ws": {
+    "addr": "0.0.0.0",
+    "port": 8546,
+    "api": [
+      "eth",
+      "net",
+      "web3",
+      "arb",
+      "txpool"
+    ]
+  },
+  "node": {
+    "feed": {
+      "output": {
+        "enable": false,
+        "port": 9642
+      }
+    },
+    "sequencer": false,
+    "delayed-sequencer": {
+      "enable": false
+    },
+    "seq-coordinator": {
+      "enable": false,
+      "redis-url": "",
+      "lockout-duration": "30s",
+      "lockout-spare": "1s",
+      "my-url": "",
+      "retry-interval": "0.5s",
+      "seq-num-duration": "24h0m0s",
+      "update-interval": "3s"
+    },
+    "batch-poster": {
+      "max-size": 90000,
+      "enable": false
+    },
+    "staker": {
+      "enable": false,
+      "strategy": "MakeNodes"
+    },
+    "dangerous": {
+      "no-sequencer-coordinator": false
+    },
+    "celestia-cfg": {
+      "enable": true,
+      "url": "http://celestia-das-server:9876"
+    },
+    "da-preference": [
+      "celestia",
+      "anytrust"
+    ],
+    "data-availability": {
+      "enable": true,
+      "sequencer-inbox-address": "0x6C71a22691590AcD426196509aabA6a73C32dEDd",
+      "parent-chain-node-url": "http://l1-proxy:8080",
+      "rest-aggregator": {
+        "enable": true,
+        "urls": "http://das-server:9877"
+      },
+      "rpc-aggregator": {
+        "enable": false,
+        "assumed-honest": 1,
+        "backends": "[{\"url\":\"http://das-server:9876\",\"pubkey\":\"YAARinj20TG37ISoc/kdXvsLoo8DTCdZnya67ZPbeCKQs5CIgzxfzHdzsm7aYjGfzRctgfbOEMc2Y6N+mQjzxbVSNUc7Wn7nSYEQdGL+0HK5LsveKj8xRY9YVpVHBuHNYwh/aHUfX/Xs5vn3awuG0A63cO4Q/L5XLCgYVVvrTTmXzGDW1RYG3rZ042/yF/RoCwxzUPyify4dAKyLsFOiRB0g4sExSE0eqFXGFUpCUuWjdj0ej2CbN/A1lST2h0w22A41xHK2f93X6ldETX1Xi3YrCFRXyjAGkt/VN0ShpJhp1Lcn/lL/utn+87gxuIBbQgvclhfsguKpegPeOw/wxg+uIkOBBIdFfwRtFp9hY/WBLT0Pf2Iv3x++G+jxhQ9+XQ==\",\"signermask\":1}]"
+      }
+    }
+  },
+  "execution": {
+    "caching": {
+      "archive": true
+    },
+    "sequencer": {
+      "max-tx-data-size": 85000,
+      "enable": false,
+      "max-block-speed": "250ms"
+    }
+  }
+}
