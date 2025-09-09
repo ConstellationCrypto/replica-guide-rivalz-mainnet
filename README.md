@@ -33,3 +33,7 @@ WARN [03-01|13:24:44.862] error reading inbox                      err="request 
 ```
 INFO [03-01|13:26:01.178] created block                            l2Block=1 l2BlockHash=a3a1db..3c1a2d
 ```
+
+## Celestia Node 
+We recommend to use https://github.com/celestiaorg/celestia-node/releases/tag/v0.24.1
+For celestia network upgrades see https://docs.celestia.org/how-to-guides/participate#network-upgrades
